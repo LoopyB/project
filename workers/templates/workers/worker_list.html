@@ -1,0 +1,8 @@
+{% for worker in workers %}
+    <div>
+            <h2>{{ worker.name }}</h2>
+            <p> Started on: {{ worker.date_started}} </p>
+            <p> Category: {{ worker.category}} </p>
+            <p> Rate: {{ worker.rate }}</p>
+    </div>
+{% endfor %}

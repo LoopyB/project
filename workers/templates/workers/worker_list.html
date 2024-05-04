@@ -1,8 +1,17 @@
+<h1>Worker List</h1>
 {% for worker in workers %}
     <div>
             <h2>{{ worker.name }}</h2>
             <p> Started on: {{ worker.date_started}} </p>
             <p> Category: {{ worker.category}} </p>
             <p> Rate: {{ worker.rate }}</p>
+            <a href="{% url 'worker_edit' pk=worker.pk %}">Edit</a>
+            <a href="{% url 'worker_delete' pk=worker.pk %}">Delete</a> 
     </div>
 {% endfor %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit">Save</button>
+</form>

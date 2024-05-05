@@ -4,7 +4,6 @@ metadata:
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.24.0 (4a2a0458)
-  creationTimestamp: null
   labels:
     io.kompose.service: db
   name: db
@@ -20,7 +19,6 @@ spec:
       annotations:
         kompose.cmd: kompose convert
         kompose.version: 1.24.0 (4a2a0458)
-      creationTimestamp: null
       labels:
         io.kompose.service: db
     spec:
@@ -34,7 +32,13 @@ spec:
               value: user_db
           image: postgres
           name: db
-          resources: {}
+          resources: 
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 200m
+              memory: 100Mi
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: db-claim0
@@ -43,4 +47,4 @@ spec:
         - name: db-claim0
           persistentVolumeClaim:
             claimName: db-claim0
-status: {}
+

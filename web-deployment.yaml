@@ -4,7 +4,6 @@ metadata:
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.24.0 (4a2a0458)
-  creationTimestamp: null
   labels:
     io.kompose.service: web
   name: web
@@ -20,7 +19,6 @@ spec:
       annotations:
         kompose.cmd: kompose convert
         kompose.version: 1.24.0 (4a2a0458)
-      creationTimestamp: null
       labels:
         io.kompose.service: web
     spec:
@@ -30,11 +28,18 @@ spec:
             - manage.py
             - runserver
             - 0.0.0.0:8000
-          image: web
+          image: wizfizz/project_web:latest
+          imagePullPolicy: IfNotPresent
           name: web
           ports:
             - containerPort: 8000
-          resources: {}
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 200m
+              memory: 100Mi
           volumeMounts:
             - mountPath: /code
               name: web-claim0
@@ -43,4 +48,4 @@ spec:
         - name: web-claim0
           persistentVolumeClaim:
             claimName: web-claim0
-status: {}
+

@@ -1,0 +1,5 @@
+{
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "Migration-to-Kubernetes-after-initial-kompose-apply"
+    ]
+}

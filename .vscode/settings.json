@@ -1,0 +1,8 @@
+{
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "Migration-to-Kubernetes-after-initial-kompose-apply"
+    ],
+    "yaml.schemas": {
+        "kubernetes://schema/v1@namespace+v1@serviceaccount+v1@configmap+rbac.authorization.k8s.io/v1@clusterrole+rbac.authorization.k8s.io/v1@clusterrolebinding+rbac.authorization.k8s.io/v1@role+rbac.authorization.k8s.io/v1@rolebinding+v1@service+v1@service+apps/v1@deployment+v1@serviceaccount+rbac.authorization.k8s.io/v1@clusterrole+rbac.authorization.k8s.io/v1@clusterrolebinding+rbac.authorization.k8s.io/v1@role+rbac.authorization.k8s.io/v1@rolebinding+batch/v1@job+batch/v1@job": "file:///home/wiz/project/ingress-nginx.yaml"
+    }
+}

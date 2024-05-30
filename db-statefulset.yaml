@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db
+spec:
+  serviceName: "db"
+  replicas: 2
+  selector:
+    matchLabels:
+      io.kompose.service: db
+  template:
+    metadata:
+      labels:
+        io.kompose.service: db
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: workers
+            - name: POSTGRES_PASSWORD
+              value: password_db
+            - name: POSTGRES_USER
+              value: user_db
+          image: postgres
+          name: db
+          resources: 
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: 1000m
+              memory: 2Gi
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: db-claim0
+      volumes:
+        - name: db-claim0
+          persistentVolumeClaim:
+            claimName: db-claim0

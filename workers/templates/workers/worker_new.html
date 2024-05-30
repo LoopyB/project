@@ -1,5 +1,5 @@
-<h1>Edit Worker</h1>
-<form method="POST" action="{% url 'worker_edit' %}">
+<h1>New Worker</h1>
+<form method="POST" action="{% url 'worker_new' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>

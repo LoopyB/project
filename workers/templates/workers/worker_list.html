@@ -1,13 +1,29 @@
-<h1>Worker List</h1>
-{% for worker in workers %}
-    <div>
-            <h2>{{ worker.name }}</h2>
-            <p> Started on: {{ worker.date_started}} </p>
-            <p> Category: {{ worker.category}} </p>
-            <p> Rate: {{ worker.rate }}</p>
-            <a href="{% url 'worker_edit' pk=worker.pk %}">Edit</a>
-            <a href="{% url 'worker_delete' pk=worker.pk %}">Delete</a> 
-    </div>
-{% endfor %}
+{% load static %}
 
-<a href="{% url 'worker_new' %}">Create new worker</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Worker List</title>
+    <link rel="stylesheet" href="{% static 'css/boostrap.min.css' %}">
+</head>
+
+<body>
+    <div class="container mt=-5">
+        <h1 class="mb-4">Worker List</h1>
+        {% for worker in workers %}
+        <div class="card-body">
+            <h2 class="card-title">{{ worker.name }}</h2>
+            <p class="card-text"> Started on: {{ worker.date_started}} </p>
+            <p class="card-text"> Category: {{ worker.category}} </p>
+            <p class="card-text"> Rate: {{ worker.rate }}</p>
+            <a href="{% url 'worker_edit' pk=worker.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'worker_delete' pk=worker.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+
+    <a href="{% url 'worker_new' %}" class="btn btn-success">Create new worker</a>
+    </div>
+</body>
+
+</html>
